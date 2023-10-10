@@ -9,34 +9,34 @@ Predictive maintenance uses sensor information and analysis methods to measure a
 The sensors fitted across different machines involved in the process of energy generation collect data related to various environmental factors (temperature, humidity, wind speed, etc.) and additional features related to various parts of the wind turbine (gearbox, tower, blades, break, etc.).
 
 # Objective
-“ReneWind” is a company working on improving the machinery/processes involved in the production of wind energy using machine learning and has collected data of generator failure of wind turbines using sensors. They have shared a ciphered version of the data, as the data collected through sensors is confidential (the type of data collected varies with companies). Data has 40 predictors, 40000 observations in the training set and 10000 in the test set.
+“ReneWind” is a company working on improving machinery/processes involved in production of wind energy using machine learning and has collected generator failure data. They have shared a ciphered version of the data, as data collected through sensors is confidential (the type of data collected varies with companies). Data has 40 predictors, 40000 observations in training set and 10000 in test set.
 
-The objective is to build various classification models, tune them and find the best one that will help identify failures so that the generator could be repaired before failing/breaking and the overall maintenance cost of the generators can be brought down.
+The objective is to build various classification models, tune them and find the best one that will help identify failures so generators could be repaired before failing/breaking and overall maintenance cost can be lowered.
 
-“1” in the target variables should be considered as “failure” and “0” will represent “No failure”.
+“1” in target variables represents “failure” and “0”  represents “No failure”.
 
-The nature of predictions made by the classification model will translate as follows:
+Nature of predictions made by classification model will translate as follows:
 
-True positives (TP) are failures correctly predicted by the model.
+True positives (TP) are failures correctly predicted by model.
 False negatives (FN) are real failures in a wind turbine where there is no detection by model.
 False positives (FP) are detections in a wind turbine where there is no failure.
-So, the maintenance cost associated with the model would be:
+So, maintenance cost associated with the model would be:
 
 Maintenance cost = TP*(Repair cost) + FN*(Replacement cost) + FP*(Inspection cost) where,
 
 Replacement cost = $40,000
 Repair cost = $15,000
 Inspection cost = $5,000
-Here the objective is to reduce the maintenance cost so, we want a metric that could reduce the maintenance cost.
+Here the objective is to reduce maintenance cost so, we want a metric that could reduce maintenance cost.
 
 The minimum possible maintenance cost = Actual failures*(Repair cost) = (TP + FN)*(Repair cost)
-The maintenance cost associated with model = TP*(Repair cost) + FN*(Replacement cost) + FP*(Inspection cost)
-So, we will try to maximize the ratio of minimum possible maintenance cost and the maintenance cost associated with the model.
+Maintenance cost associated with model = TP*(Repair cost) + FN*(Replacement cost) + FP*(Inspection cost)
+So, we will try to maximize ratio of minimum possible maintenance cost and maintenance cost associated with model.
 
-The value of this ratio will lie between 0 and 1, the ratio will be 1 only when the maintenance cost associated with the model will be equal to the minimum possible maintenance cost.
+Value of this ratio will lie between 0 and 1, ratio will be 1 only when maintenance cost associated with model equals minimum possible maintenance cost.
 
 # Data Description
-The data provided is a transformed version of original data which was collected using sensors.
+Data provided is a transformed version of original data which was collected using sensors.
 Train.csv - To be used for training and tuning of models.
 Test.csv - To be used only for testing the performance of the final best model.
-Both the datasets consist of 40 predictor variables and 1 target variable
+Both datasets consist of 40 predictor variables and 1 target variable
